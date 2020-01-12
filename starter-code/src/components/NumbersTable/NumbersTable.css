@@ -1,0 +1,19 @@
+.NumbersTable {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.NumbersTable .box {
+  border: 1px solid;
+  width: 3.5rem;
+  height: 3.5rem;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NumbersTable .bgRed {
+  background-color: red;
+}

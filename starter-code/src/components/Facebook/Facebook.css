@@ -1,0 +1,25 @@
+.Facebook {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Facebook .profile {
+  border: 1px solid;
+  margin: 0 1rem 1rem 0;
+  list-style-type: none;
+  width: fit-content;
+}
+
+.Facebook .profile img {
+  width: 7rem;
+}
+
+.Facebook .profile .container {
+  padding: 0.5rem;
+  display: flex;
+}
+
+.Facebook .profile .container .data {
+  padding-left: 1rem;
+}

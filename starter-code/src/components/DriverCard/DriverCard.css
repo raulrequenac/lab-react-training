@@ -1,0 +1,35 @@
+.DriverCard {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #425cbb;
+  margin: 0.7rem;
+}
+
+.DriverCard .driverCardImage {
+  margin-top: 1rem;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.DriverCard .rectangle {
+  width: auto;
+  height: 100%;
+  margin-left: -30px;
+}
+
+.DriverCard .square {
+  width: auto;
+  height: 100%;
+}
+
+.DriverCard .data {
+  line-height: 0.5rem;
+  margin: 1rem 0.5rem;
+}
+
+.DriverCard .white {
+  color: white;
+}
