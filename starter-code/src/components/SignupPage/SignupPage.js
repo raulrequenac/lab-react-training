@@ -8,9 +8,7 @@ class SignupPage extends Component {
     email: '',
     password: '',
     nationality: 'English',
-    submitDisplay: 'none',
-    correctEmail: 'false',
-    incorrectPassword: 'false'
+    submitDisplay: 'none'
   }
 
   greetingTranslation() {
@@ -24,6 +22,16 @@ class SignupPage extends Component {
   }
 
   changeEmail(event) {
+    if(event.target.value) {
+      this.setState({
+        correctEmail: 'valid-feedback'
+      })
+    } else {
+      this.setState({
+        correctEmail: ''
+      })
+    }
+
     this.setState({
       email: event.target.value
     })
@@ -42,10 +50,24 @@ class SignupPage extends Component {
   }
 
   handleSubmit(event) {
-    this.setState({
-      submitDisplay:''
-    })
+    if (this.state.email.length > 0 &&
+      this.state.password.length > 0 &&
+      (this.validateEmail() || this.validatePassword())) {
+      this.setState({
+        submitDisplay:''
+      })
+    }
     event.preventDefault()
+  }
+
+  validateEmail() {
+    const REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return REGEX.test(this.state.email.toLocaleLowerCase())
+  }
+
+  validatePassword() {
+    const passLength = this.state.password.length
+    return passLength >= 8 || passLength < 1
   }
 
   render() {
@@ -54,12 +76,17 @@ class SignupPage extends Component {
         <form onSubmit={event => this.handleSubmit(event)}>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" className="form-control" placeholder="Enter email" value={this.state.email} onChange={(event) => this.changeEmail(event)} />
-            <small class="form-text text-muted">You typed a valid email</small>
+            <input type="email" className={`form-control ${this.validateEmail() ? 'is-valid' : ''}`} placeholder="Enter email" value={this.state.email} onChange={(event) => this.changeEmail(event)} />
+            <div className="valid-feedback">
+              You typed a valid email
+            </div>
           </div>
           <div className="form-group">
             <label>Password</label>
-            <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={(event) => this.changePassword(event)} />
+            <input type="password" className={`form-control ${this.validatePassword() ? '' : 'is-invalid'}`} placeholder="Password" value={this.state.password} onChange={(event) => this.changePassword(event)} />
+            <div className="invalid-feedback">
+              Your password is too weak
+            </div>
           </div>
           <div className="form-group">
             <label>Nationality</label>

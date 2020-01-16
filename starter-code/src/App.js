@@ -15,6 +15,7 @@ import Carousel from './components/Carousel/Carousel.js';
 import NumbersTable from './components/NumbersTable/NumbersTable.js';
 import Facebook from './components/Facebook/Facebook.js';
 import SignupPage from './components/SignupPage/SignupPage.js';
+import RGBColorPicker from './components/RGBColorPicker/RGBColorPicker.js';
 
 const users = [{
   lastName: 'Doe',
@@ -122,6 +123,13 @@ const carouselImages = [
 ]
 
 class App extends Component {
+  state = {
+    users
+  }
+
+  handleAddUser = {
+
+  }
   render() {
     return (
       <div className="App">
@@ -170,6 +178,9 @@ class App extends Component {
 
         <h1>SignupPage</h1>
         <SignupPage />
+
+        <h1>RGBColorPicker</h1>
+        <RGBColorPicker r={255} g={150} b={0}/>
       </div>
     );
   }

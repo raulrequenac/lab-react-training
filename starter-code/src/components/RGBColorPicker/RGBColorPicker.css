@@ -1,0 +1,16 @@
+.RGBColorPicker .rgb {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.RGBColorPicker .rgb .color {
+  border: 2px solid;
+  margin-right: 1rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.RGBColorPicker.rgb .data {
+  display: flex;
+}
