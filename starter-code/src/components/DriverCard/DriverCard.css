@@ -30,6 +30,10 @@
   margin: 1rem 0.5rem;
 }
 
+.DriverCard .data p {
+  margin-top: 1rem;
+}
+
 .DriverCard .white {
   color: white;
 }

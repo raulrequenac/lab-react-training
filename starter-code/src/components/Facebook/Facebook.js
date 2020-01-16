@@ -14,66 +14,41 @@ const countries = profiles.reduce(
 
 class Facebook extends Component{
   state = {
-    lastProfile: 28,
-    0: 'none',
-    1: 'none',
-    2: 'none',
-    3: 'none',
-    4: 'none',
-    5: 'none',
-    6: 'none',
-    7: 'none',
-    8: 'none',
-    9: 'none',
-    10: 'none',
-    11: 'none',
-    12: 'none',
-    13: 'none',
-    14: 'none',
-    15: 'none',
-    16: 'none',
-    17: 'none',
-    18: 'none',
-    19: 'none',
-    20: 'none',
-    21: 'none',
-    22: 'none',
-    23: 'none',
-    24: 'none',
-    25: 'none',
-    26: 'none',
-    27: 'none',
+    display: Array(profiles.length).fill('none'),
+    country: 'All'
   }
 
   onClickData(index) {
-    if (this.state.lastProfile === index) {
+    const secondClick = this.state.display[index] === 'none'
+    this.setState({
+      display: this.state.display.fill('none')
+    })
+    if (secondClick) {
+      const auxArr = [...this.state.display]
+      auxArr[index] = ''
       this.setState({
-        [index]: this.state[index] === '' ? 'none' : ''
-      })
-    } else {
-      this.setState({
-        [index]: '',
-        [this.state.lastProfile]: 'none',
-        lastProfile: index
+        display: [...auxArr]
       })
     }
   }
 
   onClickButton(country) {
-    //TO DO
+    this.setState({
+      country: country
+    })
   }
 
   render() {
     return (
       <ul className="Facebook">
         <div className="buttons">
-          {countries.map((country, index) => <button key={index}>{country}</button>)}
+          {countries.map((country, index) => <button key={index} onClick={() => this.onClickButton(country)} style={{background: this.state.country === country ? 'lightblue' : 'white'}}>{country}</button>)}
         </div>
         {profiles.map((profile, index) => (
-          <li className="profile" key={index}>
+          <li className="profile" key={index} style={{background: this.state.country === profile.country ? 'lightblue' : ''}}>
             <div className="container">
               <img alt="" src={profile.img} onClick={() => this.onClickData(index)}></img>
-              <div className="data" style={{display: this.state[index]}}>
+              <div className="data" style={{display: this.state.display[index]}}>
                 <div><b>First Name: </b>{profile.firstName}</div>
                 <div><b>Last Name: </b>{profile.lastName}</div>
                 <div><b>Country: </b>{profile.country}</div>

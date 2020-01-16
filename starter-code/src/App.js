@@ -14,6 +14,7 @@ import Dice from './components/Dice/Dice.js';
 import Carousel from './components/Carousel/Carousel.js';
 import NumbersTable from './components/NumbersTable/NumbersTable.js';
 import Facebook from './components/Facebook/Facebook.js';
+import SignupPage from './components/SignupPage/SignupPage.js';
 
 const users = [{
   lastName: 'Doe',
@@ -166,6 +167,9 @@ class App extends Component {
 
         <h1>Facebook</h1>
         <Facebook />
+
+        <h1>SignupPage</h1>
+        <SignupPage />
       </div>
     );
   }

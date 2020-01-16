@@ -2,7 +2,7 @@
   border-radius: 10px;
   margin: 0.5rem;
   padding: 2rem;
-  width: 16rem;
+  min-width: 16rem;
   line-height: 0em;
 }
 
@@ -28,8 +28,4 @@
   margin-right: 3rem;
   margin-bottom: -1rem;
   justify-content: space-between;
-}
-
-.CreditCard .data {
-  line-height: 0.5rem;
 }
